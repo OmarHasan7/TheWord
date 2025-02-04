@@ -1,11 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* line-height: 1.5; */
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #010B13;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,56 +16,123 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+
+.logo-block {
+  @apply w-5 h-7 md:w-8 md:h-9 text-center text-xl md:text-3xl;
 }
-a:hover {
-  color: #535bf2;
+.white-border {
+  @apply py-[7px] px-[10px] border-[2px] border-[#ffffffcc] rounded-[0.6rem];
 }
 
-body {
-  margin: 0;
-  display: flex;
+.dialog-border {
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  box-shadow: 0px 4px 8px 1px rgba(14, 99, 167, 0.25);
+}
+.dialog-title {
+  width: fit-content;
+  margin-inline: auto;
+  padding-top: 1.2rem;
+  font-family: 'Inter' ;
+  font-size: 20px;
+  font-weight: 800;
+}
+.dialog-card {
+  display: grid;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0.734rem 0.625rem;
+  background: #021B2F;
+  border-radius: 0.523rem;
+  box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.custom-shadow {
+  box-shadow: inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+/* Settings */
+.divider-line {
+  height: 1.5px;
+  width: 80%;
+  margin-inline: auto;
+  margin-bottom: 0.625rem;
+  background-color: rgba(14, 99, 167, 0.5);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 3rem;
+  height: 1.4rem;
+  /* transform: scale(0.4); */
+}
+#disabled-input {
+  width: 88px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.switch input {
+  visibility: hidden;
+}
+
+.slider {
+  position: absolute;
   cursor: pointer;
-  transition: border-color 0.25s;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #021B2F;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  box-shadow: inset 1px 4px 4px rgba(0, 0, 0, 0.35);
+  border: 1px solid #0E63A7;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.disabled-slider {
+  background-color: grey;
+  box-shadow: none;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 0.95rem;
+  width: 0.95rem;
+  right: 2px;
+  bottom: 0.15rem;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #107DD4;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #107DD4;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(-6.0357px);
+  -ms-transform: translateX(-6.0357px);
+  transform: translateX(-26px);
+}
+
+input:disabled + .slider:before {
+      background-color: #c4c4c4;
+      -webkit-transform: translateX(-6.0357px);
+      -ms-transform: translateX(-6.0357px);
+      transform: translateX(-36.44px);    
+}
+
+.slider.round {
+  border-radius: 50px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Info */
+.text-stroke {
+  -webkit-text-fill-color: #3A3A3C; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0.7);
 }
