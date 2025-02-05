@@ -10,12 +10,16 @@ import Dialog from "./components/Dialog";
 import Stats from "./components/Stats";
 import Settings from "./components/Settings";
 import Info from "./components/Info";
+import Alert from "./components/Alert";
 
 export const AppContext = createContext();
+export const DialogContext = createContext();
 
 function App() {
   let [guessLetters, setGuessLetters] = useState([]);
   let [row, setRow] = useState(0);
+  let [dialogOpen, setDialogOpen] = useState(false);
+  let [dialogText, setDialogText] = useState('');
   return (
     <div className="relative ">
       <AppContext.Provider value={{guessLetters, setGuessLetters, row, setRow}}>
@@ -25,7 +29,9 @@ function App() {
             <Navbar />
           </header>
           <GuessBoard />
-          <Keyboard/>
+          <DialogContext.Provider value={{setDialogOpen, setDialogText}}>
+            <Keyboard/>
+          </DialogContext.Provider>
       </AppContext.Provider>
       <Dialog id={'stats'}>
         <Stats />
@@ -36,7 +42,7 @@ function App() {
       <Dialog id={'info'}>
         <Info />
       </Dialog>
-
+      <Alert dialogOpen={dialogOpen} text={dialogText} />
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import EnterKey from "./EnterKey"
 import Key from "./Key"
 
 function Keyboard() {
@@ -53,19 +54,7 @@ function Keyboard() {
             <Key symbol='شـ' addClasses={'w-[43.28px] h-11'} />
         </div>
         <div className="flex justify-center gap-[5px] mb-[5px]">
-            <Key  
-                symbol={<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clipPath="url(#clip0_3_24)">
-                        <path d="M0.499939 13.8716L11.0729 19.9132V15.382H24.6666V4.80905L20.1354 7.82989V10.8507H11.0729V6.31947L0.499939 13.8716Z" fill="white"/>
-                        </g>
-                        <defs>
-                        <clipPath id="clip0_3_24">
-                        <rect width="24.1667" height="24.1667" fill="white" transform="translate(0.499939 0.277771)"/>
-                        </clipPath>
-                        </defs>
-                    </svg>}
-                addClasses={'w-[76.53px] h-11'}
-             />
+            <EnterKey />
             <Key symbol='ظ' addClasses={'w-10 h-11'} />
             <Key symbol='ز' addClasses={'w-10 h-11'} />
             <Key symbol='و' addClasses={'w-10 h-11'} />
